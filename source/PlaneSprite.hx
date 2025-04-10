@@ -26,10 +26,15 @@ class PlaneSprite extends FlxSprite {
             angle += 1;
             if(angle > 0)
                 angle = 0;
-        }
-        if(FlxG.keys.justPressed.LEFT){
-            this.x -= 10;
-        }
+		}
+		if (FlxG.keys.justPressed.LEFT)
+		{
+			this.x -= 10;
+		}
+		if (FlxG.keys.pressed.D)
+		{
+			this.x -= 10;
+		}
 
        if (FlxG.keys.pressed.RIGHT) {
             if(angle < 45)
@@ -41,7 +46,11 @@ class PlaneSprite extends FlxSprite {
         }
         if(FlxG.keys.justPressed.RIGHT){
             this.x += 10;
-        }
+		}
+		if (FlxG.keys.pressed.A)
+		{
+			this.x += 10;
+		}
 
         if(FlxG.keys.pressed.UP){
             velocity.y = -100;
@@ -55,5 +64,17 @@ class PlaneSprite extends FlxSprite {
             this.x = (FlxG.width/2) - width/2;
             this.y = (FlxG.height/2) - height/2;
         }
+		if (FlxG.keys.pressed.LEFT && FlxG.keys.pressed.UP)
+		{
+			this.x -= 5;
+		}
+		else if (FlxG.keys.pressed.RIGHT && FlxG.keys.pressed.UP)
+		{
+			this.x += 5;
+		}
+		else
+		{
+			velocity.x = 0;
+		}
     }
 }
